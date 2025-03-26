@@ -59,7 +59,7 @@ fsspec==2025.3.0
 gitdb==4.0.12
 GitPython==3.1.44
 google-auth==2.38.0
-googletrans==4.0.0rc1
+googletrans
 graphene==3.4.3
 graphql-core==3.2.6
 graphql-relay==3.2.0
@@ -68,8 +68,8 @@ h11==0.14.0
 h2==3.2.0
 hpack==3.0.0
 hstspreload==2025.1.1
-httpcore==1.0.7
-httpx==0.27.2
+httpcore
+httpx
 huggingface-hub==0.29.3
 hyperframe==5.2.0
 idna==2.10
@@ -228,9 +228,9 @@ tiktoken==0.9.0
 tinycss2==1.4.0
 tokenizers==0.21.1
 tomli==2.2.1
-torch==2.5.1+cu121
-torchaudio==2.5.1+cu121
-torchvision==0.20.1+cu121
+torch
+torchaudio
+torchvision
 tornado==6.4.2
 tqdm==4.67.1
 traitlets==5.14.3
