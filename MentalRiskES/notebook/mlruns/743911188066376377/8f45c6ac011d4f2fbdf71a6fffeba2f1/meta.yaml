@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jeiso/Documents/Maestria/Semestre%20%231/Reto/MentalRiskES-2025/notebook/mlruns/743911188066376377/8f45c6ac011d4f2fbdf71a6fffeba2f1/artifacts
+end_time: 1742684770139
+entry_point_name: ''
+experiment_id: '743911188066376377'
+lifecycle_stage: active
+run_id: 8f45c6ac011d4f2fbdf71a6fffeba2f1
+run_name: Gradient Boosting Classifier
+run_uuid: 8f45c6ac011d4f2fbdf71a6fffeba2f1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742684769976
+status: 3
+tags: []
+user_id: jeison.jimenez

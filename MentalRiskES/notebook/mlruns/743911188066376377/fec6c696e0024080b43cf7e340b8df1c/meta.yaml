@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jeiso/Documents/Maestria/Semestre%20%231/Reto/MentalRiskES-2025/notebook/mlruns/743911188066376377/fec6c696e0024080b43cf7e340b8df1c/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '743911188066376377'
+lifecycle_stage: active
+run_id: fec6c696e0024080b43cf7e340b8df1c
+run_name: Session Initialized 9d12
+run_uuid: fec6c696e0024080b43cf7e340b8df1c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742700115516
+status: 1
+tags: []
+user_id: jeison.jimenez

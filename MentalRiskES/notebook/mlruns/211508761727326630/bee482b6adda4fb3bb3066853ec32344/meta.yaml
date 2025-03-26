@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jeiso/Documents/Maestria/Semestre%20%231/Reto/MentalRiskES-2025/notebook/mlruns/211508761727326630/bee482b6adda4fb3bb3066853ec32344/artifacts
+end_time: 1742539654069
+entry_point_name: ''
+experiment_id: '211508761727326630'
+lifecycle_stage: active
+run_id: bee482b6adda4fb3bb3066853ec32344
+run_name: Ridge Classifier
+run_uuid: bee482b6adda4fb3bb3066853ec32344
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742539653932
+status: 3
+tags: []
+user_id: jeison.jimenez

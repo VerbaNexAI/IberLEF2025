@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jeiso/Documents/Maestria/Semestre%20%231/Reto/MentalRiskES-2025/notebook/mlruns/743911188066376377/b6e64674855f4469af55405dda2213ee/artifacts
+end_time: 1742683762110
+entry_point_name: ''
+experiment_id: '743911188066376377'
+lifecycle_stage: active
+run_id: b6e64674855f4469af55405dda2213ee
+run_name: Decision Tree Classifier
+run_uuid: b6e64674855f4469af55405dda2213ee
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742683761963
+status: 3
+tags: []
+user_id: jeison.jimenez

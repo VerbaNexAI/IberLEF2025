@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jeiso/Documents/Maestria/Semestre%20%231/Reto/MentalRiskES-2025/notebook/mlruns/743911188066376377/0c34459ba0474d92bc2ae865abb3794f/artifacts
+end_time: 1742700172855
+entry_point_name: ''
+experiment_id: '743911188066376377'
+lifecycle_stage: active
+run_id: 0c34459ba0474d92bc2ae865abb3794f
+run_name: K Neighbors Classifier
+run_uuid: 0c34459ba0474d92bc2ae865abb3794f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742700172703
+status: 3
+tags: []
+user_id: jeison.jimenez

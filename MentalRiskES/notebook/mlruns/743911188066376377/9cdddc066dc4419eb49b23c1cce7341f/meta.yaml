@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jeiso/Documents/Maestria/Semestre%20%231/Reto/MentalRiskES-2025/notebook/mlruns/743911188066376377/9cdddc066dc4419eb49b23c1cce7341f/artifacts
+end_time: 1742700172320
+entry_point_name: ''
+experiment_id: '743911188066376377'
+lifecycle_stage: active
+run_id: 9cdddc066dc4419eb49b23c1cce7341f
+run_name: Light Gradient Boosting Machine
+run_uuid: 9cdddc066dc4419eb49b23c1cce7341f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742700172160
+status: 3
+tags: []
+user_id: jeison.jimenez

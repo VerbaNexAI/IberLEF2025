@@ -1,0 +1,11 @@
+Subject,Risk
+user1,0
+user2,0
+user3,0
+user4,0
+user5,1
+user6,1
+user7,0
+user8,0
+user9,1
+user10,0

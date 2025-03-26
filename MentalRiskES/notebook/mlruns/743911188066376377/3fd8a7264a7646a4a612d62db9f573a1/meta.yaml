@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jeiso/Documents/Maestria/Semestre%20%231/Reto/MentalRiskES-2025/notebook/mlruns/743911188066376377/3fd8a7264a7646a4a612d62db9f573a1/artifacts
+end_time: 1742700171229
+entry_point_name: ''
+experiment_id: '743911188066376377'
+lifecycle_stage: active
+run_id: 3fd8a7264a7646a4a612d62db9f573a1
+run_name: Random Forest Classifier
+run_uuid: 3fd8a7264a7646a4a612d62db9f573a1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742700168685
+status: 3
+tags: []
+user_id: jeison.jimenez

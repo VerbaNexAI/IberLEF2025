@@ -1,0 +1,8 @@
+Subject,Type
+user1002,betting
+user133,betting
+user15997,onlinegaming
+user28389,onlinegaming
+user10263,trading
+user7317,trading
+user28536,lootboxes

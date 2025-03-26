@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jeiso/Documents/Maestria/Semestre%20%231/Reto/MentalRiskES-2025/notebook/mlruns/743911188066376377/b04d5b1e9dfa4f2397de369b9f5b0dd6/artifacts
+end_time: 1742553770006
+entry_point_name: ''
+experiment_id: '743911188066376377'
+lifecycle_stage: active
+run_id: b04d5b1e9dfa4f2397de369b9f5b0dd6
+run_name: Dummy Classifier
+run_uuid: b04d5b1e9dfa4f2397de369b9f5b0dd6
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742553769857
+status: 3
+tags: []
+user_id: jeison.jimenez

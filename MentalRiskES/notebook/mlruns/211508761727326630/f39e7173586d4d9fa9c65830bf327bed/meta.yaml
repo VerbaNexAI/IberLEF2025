@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jeiso/Documents/Maestria/Semestre%20%231/Reto/MentalRiskES-2025/notebook/mlruns/211508761727326630/f39e7173586d4d9fa9c65830bf327bed/artifacts
+end_time: 1742685539374
+entry_point_name: ''
+experiment_id: '211508761727326630'
+lifecycle_stage: active
+run_id: f39e7173586d4d9fa9c65830bf327bed
+run_name: Linear Discriminant Analysis
+run_uuid: f39e7173586d4d9fa9c65830bf327bed
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742685539235
+status: 3
+tags: []
+user_id: jeison.jimenez

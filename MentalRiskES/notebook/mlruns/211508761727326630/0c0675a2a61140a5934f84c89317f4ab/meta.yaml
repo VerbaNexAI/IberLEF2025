@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jeiso/Documents/Maestria/Semestre%20%231/Reto/MentalRiskES-2025/notebook/mlruns/211508761727326630/0c0675a2a61140a5934f84c89317f4ab/artifacts
+end_time: 1742539654829
+entry_point_name: ''
+experiment_id: '211508761727326630'
+lifecycle_stage: active
+run_id: 0c0675a2a61140a5934f84c89317f4ab
+run_name: SVM - Linear Kernel
+run_uuid: 0c0675a2a61140a5934f84c89317f4ab
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742539654678
+status: 3
+tags: []
+user_id: jeison.jimenez

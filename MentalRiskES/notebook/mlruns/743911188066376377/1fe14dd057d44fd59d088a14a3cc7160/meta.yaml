@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jeiso/Documents/Maestria/Semestre%20%231/Reto/MentalRiskES-2025/notebook/mlruns/743911188066376377/1fe14dd057d44fd59d088a14a3cc7160/artifacts
+end_time: 1742684825604
+entry_point_name: ''
+experiment_id: '743911188066376377'
+lifecycle_stage: active
+run_id: 1fe14dd057d44fd59d088a14a3cc7160
+run_name: Logistic Regression
+run_uuid: 1fe14dd057d44fd59d088a14a3cc7160
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742684824953
+status: 3
+tags: []
+user_id: jeison.jimenez

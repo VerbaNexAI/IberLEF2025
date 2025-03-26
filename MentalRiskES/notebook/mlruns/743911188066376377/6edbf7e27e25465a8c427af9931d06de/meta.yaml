@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jeiso/Documents/Maestria/Semestre%20%231/Reto/MentalRiskES-2025/notebook/mlruns/743911188066376377/6edbf7e27e25465a8c427af9931d06de/artifacts
+end_time: 1742553768615
+entry_point_name: ''
+experiment_id: '743911188066376377'
+lifecycle_stage: active
+run_id: 6edbf7e27e25465a8c427af9931d06de
+run_name: Naive Bayes
+run_uuid: 6edbf7e27e25465a8c427af9931d06de
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742553768464
+status: 3
+tags: []
+user_id: jeison.jimenez

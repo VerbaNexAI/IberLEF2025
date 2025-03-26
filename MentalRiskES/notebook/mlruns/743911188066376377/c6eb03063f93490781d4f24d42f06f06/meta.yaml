@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jeiso/Documents/Maestria/Semestre%20%231/Reto/MentalRiskES-2025/notebook/mlruns/743911188066376377/c6eb03063f93490781d4f24d42f06f06/artifacts
+end_time: 1742700174418
+entry_point_name: ''
+experiment_id: '743911188066376377'
+lifecycle_stage: active
+run_id: c6eb03063f93490781d4f24d42f06f06
+run_name: Quadratic Discriminant Analysis
+run_uuid: c6eb03063f93490781d4f24d42f06f06
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742700174283
+status: 3
+tags: []
+user_id: jeison.jimenez

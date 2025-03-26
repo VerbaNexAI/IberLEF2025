@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jeiso/Documents/Maestria/Semestre%20%231/Reto/MentalRiskES-2025/notebook/mlruns/743911188066376377/811051c6ba2149f58c69653997f5ec9d/artifacts
+end_time: 1742683761004
+entry_point_name: ''
+experiment_id: '743911188066376377'
+lifecycle_stage: active
+run_id: 811051c6ba2149f58c69653997f5ec9d
+run_name: Extra Trees Classifier
+run_uuid: 811051c6ba2149f58c69653997f5ec9d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742683760848
+status: 3
+tags: []
+user_id: jeison.jimenez
