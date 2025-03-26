@@ -2,7 +2,7 @@ import pandas as pd
 import random
 import nltk
 from nltk.corpus import wordnet
-from googletrans import Translator
+from deep_translator import GoogleTranslator
 
 # Download necessary NLTK resources (only required on first execution)
 nltk.download('wordnet')
@@ -14,7 +14,7 @@ class DataAugmenter:
     A class to apply data augmentation techniques to Spanish text to balance class distributions.
 
     Implemented techniques:
-        - Back translation: Spanish to English and back to Spanish.
+        - Back translation: Spanish to English and back to Spanish using deep_translator.
         - Synonym replacement using WordNet.
         - Paraphrasing by combining the above techniques.
 
@@ -31,7 +31,6 @@ class DataAugmenter:
         """
         self.seed = seed
         random.seed(self.seed)
-        self.translator = Translator()
 
     def back_translate(self, text, src='es', mid='en'):
         """
@@ -47,8 +46,8 @@ class DataAugmenter:
             str: The back-translated text.
         """
         try:
-            translated = self.translator.translate(text, src=src, dest=mid).text
-            back_translated = self.translator.translate(translated, src=mid, dest=src).text
+            translated = GoogleTranslator(source=src, target=mid).translate(text)
+            back_translated = GoogleTranslator(source=mid, target=src).translate(translated)
             return back_translated
         except Exception as e:
             print(f"Error in back_translate: {e}")
@@ -159,7 +158,8 @@ class DataAugmenter:
             if count >= default_target:
                 continue
 
-            df_class = df[df['label_text'] == current_label] if balance_by == 'label_text' else df[df[label_col] == current_label]
+            df_class = df[df['label_text'] == current_label] if balance_by == 'label_text' else df[
+                df[label_col] == current_label]
             texts = df_class[text_col].tolist()
             num_needed = default_target - count
 
@@ -177,4 +177,5 @@ class DataAugmenter:
 
         df_augmented = pd.concat([df, pd.DataFrame(augmented_rows)], ignore_index=True) if augmented_rows else df.copy()
         return df_augmented
+
 
