@@ -3,16 +3,27 @@ import glob
 import json
 import pandas as pd
 import torch
+import re
+import emoji
+from pathlib import Path
 from transformers import AutoTokenizer, AutoModel, LongformerTokenizer, LongformerModel
 from pycaret.classification import load_model, predict_model
 from codecarbon import EmissionsTracker
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
-import re
-import emoji
+
+# Define the base directory for the project
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 class DatasetColumnTransformer:
+    """
+    A class to handle text preprocessing, including removing URLs, emails, usernames,
+    HTML tags, markdown formatting, excessive punctuation, and lemmatization.
+    """
+
     def __init__(self):
+        """Initialize the text cleaning patterns and the WordNet lemmatizer."""
         self.lemmatizer = WordNetLemmatizer()
         self.url_pattern = re.compile(r'https?://\S+|www\.\S+')
         self.email_pattern = re.compile(r'\S+@\S+\.\S+')
@@ -24,6 +35,7 @@ class DatasetColumnTransformer:
         self.single_quotes_pattern = re.compile(r'[‘’]')
 
     def clean_text(self, text):
+        """Process a text string by applying multiple cleaning steps."""
         if not isinstance(text, str):
             return ""
         text = text.lower()
@@ -42,32 +54,43 @@ class DatasetColumnTransformer:
         words = [self.lemmatizer.lemmatize(word) for word in words]
         return " ".join(words)
 
+
+# Define the computing device (GPU if available, otherwise CPU)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# LongFormer
-# model_name = "PlanTL-GOB-ES/longformer-base-4096-bne-es"
-# tokenizer = LongformerTokenizer.from_pretrained(model_name)
-# model = LongformerModel.from_pretrained(model_name).to(device)
-# best_model = load_model(r"C:\Users\jeiso\Documents\Maestria\Semestre #1\Reto\MentalRiskES-2025\models\random_forest_long\rf_task1")
+# Load the Longformer model and tokenizer
+model_name = "PlanTL-GOB-ES/longformer-base-4096-bne-es"
+tokenizer = LongformerTokenizer.from_pretrained(model_name)
+model = LongformerModel.from_pretrained(model_name).to(device)
 
-# BETO
-model_name = "dccuchile/bert-base-spanish-wwm-cased"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModel.from_pretrained(model_name).to(device)
-best_model = load_model(r"C:\Users\jeiso\Documents\Maestria\Semestre #1\Reto\MentalRiskES-2025\models\logistic_regressor_beto\lr_task1")
+# Load the best trained classification model
+best_model_path = BASE_DIR / "models" / "random_forest_long" / "rf_task1"
+best_model = load_model(str(best_model_path))
 
-directory = r"C:\Users\jeiso\Documents\Maestria\Semestre #1\Reto\MentalRiskES-2025\data\Sintetic"
+# Define the dataset directory and label mapping
+directory = BASE_DIR / "data" / "trial" / "task1" / "subjects"
 mapping = {'low risk': 0, 'high risk': 1}
+
+# Instantiate the text cleaning transformer
 text_cleaner = DatasetColumnTransformer()
 
+
 def get_longformer_embedding(text, max_length=512):
+    """
+    Generate embeddings for a given text using the Longformer model.
+    """
     inputs = tokenizer(text, return_tensors="pt", truncation=True, padding="max_length", max_length=max_length)
     inputs = {k: v.to(device) for k, v in inputs.items()}
     with torch.no_grad():
         outputs = model(**inputs)
     return outputs.last_hidden_state.mean(dim=1).squeeze().cpu().numpy()
 
+
 def process_incremental_messages(user_id, messages):
+    """
+    Process messages incrementally for a given user, performing text cleaning,
+    embedding extraction, and classification prediction.
+    """
     history = ""
     print(f"\nProcessing user {user_id}...")
     for i in range(len(messages)):
@@ -82,16 +105,23 @@ def process_incremental_messages(user_id, messages):
         pred_text = {v: k for k, v in mapping.items()}.get(pred, "Unknown")
         print(f"Messages: {i + 1}, Prediction: {pred_text}, Probability: {prob:.4f}")
 
+
 def main():
+    """
+    Main function to process user message files and track carbon emissions.
+    """
     tracker = EmissionsTracker()
     tracker.start()
+
     if not os.path.isdir(directory):
         print("The specified directory does not exist.")
         return
+
     files = glob.glob(os.path.join(directory, "*.json"))
     if not files:
         print("No JSON files found.")
         return
+
     for file in files:
         user_id = os.path.splitext(os.path.basename(file))[0]
         try:
@@ -104,22 +134,24 @@ def main():
                 print(f"No messages found in {file}")
         except Exception as e:
             print(f"Error processing {file}: {e}")
+
     emissions = tracker.stop()
     df_emissions = pd.read_csv('emissions/emissions.csv')
-    print("\nDatos de emisiones formateados:")
+    print("\nFormatted emissions data:")
     for index, row in df_emissions.iterrows():
-        print(f'"duración": {row["duration"]},')
-        print(f'"emisiones": {row["emissions"]},')
-        print(f'"energía_cpu": {row["cpu_energy"]},')
-        print(f'"energía_gpu": {row["gpu_energy"]},')
-        print(f'"energía_ram": {row["ram_energy"]},')
-        print(f'"energía_consumida": {row["energy_consumed"]},')
-        print(f'"número_de_cpu": {row["cpu_count"]},')
-        print(f'"cuenta_de_gpu": {row["gpu_count"]},')
+        print(f'"duration": {row["duration"]},')
+        print(f'"emissions": {row["emissions"]},')
+        print(f'"cpu_energy": {row["cpu_energy"]},')
+        print(f'"gpu_energy": {row["gpu_energy"]},')
+        print(f'"ram_energy": {row["ram_energy"]},')
+        print(f'"energy_consumed": {row["energy_consumed"]},')
+        print(f'"cpu_count": {row["cpu_count"]},')
+        print(f'"gpu_count": {row["gpu_count"]},')
         print(f'"cpu_model": "{row["cpu_model"]}",')
         print(f'"gpu_model": "{row["gpu_model"]}",')
-        print(f'"tamaño_total_de_ram": {row["ram_total_size"]},')
-        print(f'"código ISO del país": "{row["country_iso_code"]}"')
+        print(f'"ram_total_size": {row["ram_total_size"]},')
+        print(f'"country_iso_code": "{row["country_iso_code"]}"')
+
 
 if __name__ == "__main__":
     main()
