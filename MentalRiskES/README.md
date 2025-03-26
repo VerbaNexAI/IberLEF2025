@@ -1,4 +1,4 @@
-# MentalRiskES - Tasks
+# 🎲 MentalRiskES - Tasks
 
 ## Overview
 All tasks focus on detecting mental disorders in users based on their comments posted on Telegram and Twitch. Given a history of messages from a user, the goal is to determine whether the user suffers from the disorder and identify the context influencing their mental health problem.
