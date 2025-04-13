@@ -56,13 +56,13 @@ class DatasetColumnTransformer:
 # Set the device to GPU if available, otherwise CPU
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# Load the Longformer model and tokenizer
-model_name = "PlanTL-GOB-ES/longformer-base-4096-bne-es"
-tokenizer = LongformerTokenizer.from_pretrained(model_name)
-model = LongformerModel.from_pretrained(model_name).to(device)
+# BETO
+model_name = "dccuchile/bert-base-spanish-wwm-cased"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModel.from_pretrained(model_name).to(device)
 
 # Load the trained classification model
-best_model_path = BASE_DIR / "models" / "random_forest_long" / "rf_task2"
+best_model_path = BASE_DIR / "models" / "final_models" / "lr_task2_final"
 best_model = load_model(str(best_model_path))
 
 # Directory containing data
@@ -133,7 +133,7 @@ def main():
         except Exception as e:
             print(f"Error processing {file}: {e}")
     emissions = tracker.stop()
-    df_emissions = pd.read_csv('emissions/emissions.csv')
+    df_emissions = pd.read_csv('emissions.csv')
     print("\nFormatted emission data:")
     for index, row in df_emissions.iterrows():
         print(f'"duration": {row["duration"]},')

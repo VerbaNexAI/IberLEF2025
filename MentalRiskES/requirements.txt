@@ -1,3 +1,7 @@
+epitran
+gensim
+spacy-syllables
+spacymoji
 alembic==1.15.1
 annotated-types==0.7.0
 anyio==4.8.0

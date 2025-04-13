@@ -12,6 +12,8 @@ from codecarbon import EmissionsTracker
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 
+from MentalRiskES.src.test_task2 import best_model_path
+
 # Define the base directory for the project
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -58,13 +60,13 @@ class DatasetColumnTransformer:
 # Define the computing device (GPU if available, otherwise CPU)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# Load the Longformer model and tokenizer
-model_name = "PlanTL-GOB-ES/longformer-base-4096-bne-es"
-tokenizer = LongformerTokenizer.from_pretrained(model_name)
-model = LongformerModel.from_pretrained(model_name).to(device)
+# BETO
+model_name = "dccuchile/bert-base-spanish-wwm-cased"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModel.from_pretrained(model_name).to(device)
 
 # Load the best trained classification model
-best_model_path = BASE_DIR / "models" / "random_forest_long" / "rf_task1"
+best_model_path = BASE_DIR / "models" / "final_models" / "lightgbm_task1_final"
 best_model = load_model(str(best_model_path))
 
 # Define the dataset directory and label mapping
@@ -136,7 +138,7 @@ def main():
             print(f"Error processing {file}: {e}")
 
     emissions = tracker.stop()
-    df_emissions = pd.read_csv('emissions/emissions.csv')
+    df_emissions = pd.read_csv('emissions.csv')
     print("\nFormatted emissions data:")
     for index, row in df_emissions.iterrows():
         print(f'"duration": {row["duration"]},')
